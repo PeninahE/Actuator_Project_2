@@ -9,6 +9,6 @@ async def root():
 
 @app.get("/sum")
 async def sum():
-    return {"message": "Hello Peninah. This is teh sum"}
+    return {"message": "Hello Peninah. This is the sum"}
 
 
