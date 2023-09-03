@@ -1,13 +1,31 @@
 
 
 from fastapi import FastAPI
-app = FastAPI()
+from uvicorn import Server
+
+from uvicorn.config import Config
+from pyctuator.pyctuator import Pyctuator
+from uvicorn import run
+import requests  # Import requests library for HTTP requests
+
+
+app_name = "FastAPI App with Pyctuator"
+app = FastAPI(title=app_name)
 
 
 @app.get("/")
-async def root():
-    return {"message": "Hello Peninah. This is the Actuator Project"}
+def hello():
+    return "Hello World!"
 
-@app.get("/sum")
-async def sum():
-    return {"message": "Hello Peninah. This is the sum"}
+
+Pyctuator(
+    app,
+    "FastAPI Pyctuator",
+    app_url="http://host.docker.internal:8000",
+    pyctuator_endpoint_url="http://host.docker.internal:8000/pyctuator",
+    registration_url="http://localhost:8080/instances"
+)
+
+#Server(config=(Config(app=app, loop="asyncio"))).run()
+if __name__ == "__main__":
+    run(app, host="0.0.0.0", port=8000)
