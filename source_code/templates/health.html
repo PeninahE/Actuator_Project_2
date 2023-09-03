@@ -1,0 +1,40 @@
+
+
+
+!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Server Status</title>
+    </head>
+
+    <body>
+        <h1>Server Status Results</h1>
+        <p>This project will display a server status using the actuator capabilities provided by the pyctuator library.</p>
+        <form>
+            <label for="options">Options:</label>
+          <select name="status" id="status">
+            <option value="health">Health</option>
+            <option value="metrics">Metrics</option>
+            <option value="environment">Environment</option>
+            <option value="logfile">Logfile</option>
+            <option value="http trace">HTTP Trace</option>
+            <option value="tread dump">Thread Dump</option>
+          </select>
+          <br><br>
+          <input type="submit" value="Submit">
+        </form>
+
+<p></p>
+
+
+        <form>
+
+                <label for="refresh"> Refresh </label>
+                <input type="button" >
+                <br>
+
+        </form>
+<p>Click the "Refresh" button to display data for your new selection.</p>
+    </body>
+</html>
