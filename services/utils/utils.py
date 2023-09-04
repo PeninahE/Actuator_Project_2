@@ -13,19 +13,19 @@ app_name = "FastAPI App with Pyctuator"
 app = FastAPI(title=app_name)
 
 
-@app.get("/")
-def hello():
-    return "Hello World!"
+#@app.get("/")
+#def hello():
+  #  return "Hello World!"
 
 
 Pyctuator(
     app,
     "FastAPI Pyctuator",
-    app_url="http://host.docker.internal:8000",
-    pyctuator_endpoint_url="http://host.docker.internal:8000/pyctuator",
+    app_url="http://host.docker.internal:8001",
+    pyctuator_endpoint_url="http://host.docker.internal:8001/pyctuator",
     registration_url="http://localhost:8080/instances"
 )
 
 #Server(config=(Config(app=app, loop="asyncio"))).run()
 if __name__ == "__main__":
-    run(app, host="0.0.0.0", port=8000)
+    run(app, host="0.0.0.0", port=8001)
