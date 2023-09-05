@@ -10,8 +10,9 @@ def create_app():
     def app_html():
         return render_template("app_html.html")
 
-    @app.route('/actuator')
+    @app.route('/actuator/{endpoint}')
     def actuator():
+        #if endpoint == health include health
         return redirect ("http://127.0.0.1:8000/pyctuator/health")
 
 
