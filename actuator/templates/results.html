@@ -1,0 +1,35 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Server Status Per Endpoint</title>
+    </head>
+
+    <body>
+        <py-script>
+
+
+        { % if page == "health" %}
+         { % include "health.html" %}
+
+        { % elif page == "metrics" %}
+         { % include "metrics.html" %}
+
+        { % elif page == "env" %}
+         { % include "env.html" %}
+
+        { % elif page == "logfile" %}
+         { % include  "logfile.html" %}
+
+        { % elif page == "httptrace" %}
+         { % include "httptrace.html" %}
+
+        { % elif page == "threaddump" %}
+         { % include "threaddump.html" %}
+
+        { % endif %}
+        </py-script>
+    </body>
+
+</html>
