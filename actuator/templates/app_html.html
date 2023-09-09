@@ -8,7 +8,7 @@
     <body>
         <h1>Server Status Results</h1>
         <p>This project will display a server status using the actuator capabilities provided by the pyctuator library.</p>
-        <form>
+        <form action="http://127.0.0.1:5000/actuator">
             <label for="options">Options:</label>
           <select name="status" id="status">
             <option value="health">Health</option>
@@ -19,7 +19,7 @@
             <option value="threaddump">Thread Dump</option>
           </select>
           <br><br>
-          <input type="submit" value="Submit">
+           <input type="submit" value="Submit">
         </form>
 
 <p></p>

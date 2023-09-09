@@ -16,7 +16,7 @@ def create_app():
     def app_html():
         return render_template("app_html.html")
 
-    @app.route('/actuator', methods = ['POST'])
+    @app.route('/actuator', methods = ['POST','GET'])
     def actuator():
         status_choice = request.form['status']
         url = "http://127.0.0.1:8000/pyctuator/" + status_choice
@@ -28,8 +28,9 @@ def create_app():
         # elif status_choice == ",=metrics":
         #     return redirect("http://127.0.0.1:8000/pyctuator/metrics")
         #
-        # elif status_choice == "env":
-        #     return redirect("http://127.0.0.1:8000/pyctuator/env")
+        elif status_choice == "env":
+            return render_template("health.html", result=actuator_response.text)
+
         #
         # elif status_choice == "logfile":
         #     return redirect("http://127.0.0.1:8000/pyctuator/logfile")
