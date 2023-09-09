@@ -20,7 +20,7 @@ my_pyctuator = Pyctuator(
     "FastAPI Pyctuator",
     app_url="http://localhost:8000",
     pyctuator_endpoint_url="http://localhost:8000/pyctuator",
-    registration_url="https://www.whatsapp.com/" #"https://www.auntieclairecodes.io/" #"http://localhost:8080/instances"
+    registration_url="http://localhost:8080/instances"
 )
 #Server(config=(Config(app=app, loop="asyncio"))).run()
 

@@ -16,7 +16,7 @@ def create_app():
     def app_html():
         return render_template("app_html.html")
 
-    @app.route('/actuator', methods = ['POST','GET'])
+    @app.route('/actuator', methods=['POST', 'GET'])
     def actuator():
         status_choice = request.form['status']
         url = "http://127.0.0.1:8000/pyctuator/" + status_choice
@@ -25,22 +25,21 @@ def create_app():
         if status_choice == "health":
             return render_template("health.html", result = actuator_response.text)
 
-        # elif status_choice == ",=metrics":
-        #     return redirect("http://127.0.0.1:8000/pyctuator/metrics")
-        #
-        elif status_choice == "env":
-            return render_template("health.html", result=actuator_response.text)
+        elif status_choice == "metrics":
+            #return redirect("http://127.0.0.1:8000/pyctuator/metrics")
+            return render_template("metrics.html", result=actuator_response.text)
 
-        #
-        # elif status_choice == "logfile":
-        #     return redirect("http://127.0.0.1:8000/pyctuator/logfile")
-        #
-        # elif status_choice == "httptrace":
-        #     return redirect("http://127.0.0.1:8000/pyctuator/httptrace")
-        #
-        # elif status_choice == "threaddump":
-        #     return redirect("http://127.0.0.1:8000/pyctuator/threaddump")
-        # else:
-        #     print("status_choice not found")
+        elif status_choice == "env":
+            return render_template("env.html", result=actuator_response.text)
+
+        elif status_choice == "logfile":
+            return render_template("logfile.html", result = actuator_response.text)
+
+        elif status_choice == "httptrace":
+            return render_template("httptrace.html", result = actuator_response.text)
+
+        elif status_choice == "threaddump":
+            return render_template("threaddump.html", result = actuator_response.text)
+
     return app
 
