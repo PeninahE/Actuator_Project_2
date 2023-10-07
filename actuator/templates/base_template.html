@@ -1,44 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-<style>
-.myDiv {
-  border: 5px outset green;
-  background-color: lightblue;
-  text-align: center;
-}
-</style>
-    {% block head %}
-    <title>{% block title %}{% endblock %} - Server Status Per Endpoint </title>
-    {% endblock %}
-</head>
+<head> Actuator Status </head>
 
 <body>
-    <div class="myDiv" id = 'status'>
-      {% block status %}
-        { % if status == "health" %}
-         { % include "health.html" %}
 
-        { % elif status == "metrics" %}
-         { % include "metrics.html" %}
-
-        { % elif status == "env" %}
-         { % include "env.html" %}
-
-        { % elif status == "logfile" %}
-         { % include  "logfile.html" %}
-
-        { % elif status == "httptrace" %}
-         { % include "httptrace.html" %}
-
-        { % elif status == "threaddump" %}
-         { % include "threaddump.html" %}
+        {% if {{status_choice}} == "health" %}
+            {% include "health.html" %}
         {% endif %}
-      {% endblock %}
-    </div>
-
 
 </body>
 

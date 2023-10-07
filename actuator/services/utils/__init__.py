@@ -13,7 +13,7 @@ def create_app():
     @app.route('/service')
     def service():
         json_response = ServiceCaller("http://service.call.url.com")
-        return render_template('results.html', json_response = json_response)
+        return render_template('base_template.html', json_response = json_response)
 
 
         @app.route("/pyctuator/<page>")
