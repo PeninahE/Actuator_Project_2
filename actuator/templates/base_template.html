@@ -4,11 +4,8 @@
 <head> Actuator Status </head>
 
 <body>
-
-        {% if {{status_choice}} == "health" %}
-            {% include "health.html" %}
-        {% endif %}
-
+ status_choice={{status_choice}}
+ {{result}}
 </body>
 
 </html>

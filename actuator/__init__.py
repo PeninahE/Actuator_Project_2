@@ -1,5 +1,5 @@
-# init_2.py
-#from requests import requests
+# __init__.py
+# from requests import requests
 import requests
 from flask import Flask, render_template, redirect, request
 
@@ -29,4 +29,3 @@ def create_app():
         return render_template("base_template.html", result=actuator_response.text, status_choice=status_choice)
 
     return app
-
